@@ -38,28 +38,86 @@
 
 
 // Your code here:
-const booksArray = [];
+const booksArray = [
+  {
+    title: "The Old Man and the Sea",
+    pages: 128,
+    author: "Ernest Hemingway",
+    details: {
+      language: "English",
+      description: "One of Hemingway's most famous works, it tells the story of Santiago, an aging fisherman who struggles to catch a giant marlin in the waters of the Gulf Stream."
+    }
+  },
+  {
+    title: "The Airbnb Story",
+    pages: 256,
+    author: "Leight Gallagher",
+    details: {
+      language: "English",
+      description: "This is the remarkable behind-the-scenes story of the creation and growth of Airbnb, from the company's inception in 2008 to its present-day status as a global phenomenon."
+    }
+  },
+  {
+    title: "Educated - A Memoir",
+    pages: 352,
+    author: "Tara Westover",
+    details: {
+      language: "English",
+      description: "Educated is an account of the struggle for self-invention, chronicling Tara Westover's journey from growing up in a survivalist family in rural Idaho to earning a PhD from the University of Cambridge."
+    }
+  },
+  {
+    title: "The Art of Learning",
+    pages: 288,
+    author: "Josh Waitzkin",
+    details: {
+      language: "English",
+      description: "The Art of Learning takes readers through Waitzkin's unique journey to excellence, explaining how a principled approach to learning can separate success from failure in any field."
+    }
+  }
+];
+
+console.log(booksArray);
+
 
 
 
 
 // Iteration 2 | Book Details
-function getBookDetails() {
+function getBookDetails(book) {
   // Your code here:
+  return `${book.title} - ${book.author} - ${book.pages} pages`;
 
 }
+
+console.log(getBookDetails(booksArray));
+
 
 
 
 // Iteration 3 | Delete Language
 // Your code here:
 
-
+booksArray.forEach(book => {
+  if (book.details && 'language' in book.details){
+    delete book.details.language;
+  }
+})
+console.log(booksArray);
 
 
 // Iteration 4 | Estimated Reading Time
 // Your code here:
 
+booksArray.forEach(book => {
+  
+  const readingTime = Math.ceil((book.pages * 500) / 90); 
+
+  book.readingTime = readingTime;
+  
+});
+
+console.log(booksArray); 
 
 
 
